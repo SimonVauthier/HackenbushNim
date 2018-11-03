@@ -1,0 +1,209 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8 mai 2018, 19:39:52
+    Author     : simon
+*/
+
+#dessin {
+    -fx-border-insets: 5;
+    -fx-border-width: 3;
+    -fx-border-color: grey;
+    -fx-border-radius: 4px;
+    -fx-background-color: white;
+}
+
+#menuPrincipal {
+    -fx-background-image: url(IG.jpg);
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: white;
+    -fx-background-position: center center,center center;
+}
+#menuPrincipal .button {
+    -fx-background-radius: 8px;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #929a91, white);
+    -fx-effect: dropshadow(one-pass-box, grey, 10, 0.2, 2, 2);
+}
+#menuPrincipal .button:hover {
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, white, #adb0ac);
+}
+
+#barBas {
+    -fx-background-color: linear-gradient(#a9a9a9 25%, #d4d4d4 50%, #a9a9a9 75%);
+}
+#barBas .tool-bar {
+    -fx-background-color: linear-gradient(#a9a9a9 25%, #d4d4d4 50%, #a9a9a9 75%);
+}
+#barBas .tool-bar .button {
+    -fx-background-color: linear-gradient(#a9a9a9 0%, #d4d4d4 50%, #a9a9a9 100%);
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+#barBas .tool-bar .button:hover {
+    -fx-background-color: linear-gradient(#d4d4d4 0%, #a9a9a9 50%, #d4d4d4 100%);
+}
+
+#barBas .tool-bar .toggle-button {
+    -fx-background-color: linear-gradient(#a9a9a9 0%, #d4d4d4 50%, #a9a9a9 100%);
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+#barBas .tool-bar .toggle-button:selected {
+    -fx-background-color: linear-gradient(#a9a9a9 0%, #d4d4d4 50%, #a9a9a9 100%);
+    -fx-border-width: 1px;
+    -fx-border-color: red;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+#barBas .tool-bar .toggle-button:hover {
+    -fx-background-color: linear-gradient(#d4d4d4 0%, #a9a9a9 50%, #d4d4d4 100%);
+}
+
+#barBas .tool-bar .choice-box {
+    -fx-background-color: linear-gradient(#a9a9a9 0%, #d4d4d4 50%, #a9a9a9 100%);
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+#barBas .tool-bar .choice-box:hover {
+    -fx-background-color: linear-gradient(#d4d4d4 0%, #a9a9a9 50%, #d4d4d4 100%);
+}
+#barBas .slider {
+    -fx-background-color: linear-gradient(#a9a9a9 0%, #d4d4d4 50%, #a9a9a9 100%);
+}
+#barBas .slider .thumb {
+    -fx-background-color: green;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+}
+#barBas .slider .track {
+    -fx-background-color: whitesmoke;
+}
+
+.separator *.line {
+    -fx-background-radius: 2px;
+    -fx-border-color: linear-gradient(to right, #9c9c9c, #a9a9a9, #9c9c9c);
+    -fx-boder-radius: 2px;
+}
+
+.label {
+    -fx-text-alignment: justify;
+}
+
+#jouerHackenbush {
+    -fx-background-color: linear-gradient(to right, red, green, blue);
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: black;
+}
+#jouerHackenbush:hover {
+    -fx-background-color: linear-gradient(red, green, blue);
+}
+
+#jouerNim {
+    -fx-background-color: linear-gradient(to right, greenyellow, green, greenyellow);
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: black;
+}
+#jouerNim:hover {
+    -fx-background-color: linear-gradient(greenyellow, green, greenyellow);
+}
+
+#misere {
+    -fx-background-color: linear-gradient(to right, #b4b4b4, #757575);
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: black;
+}
+#misere:hover {
+    -fx-background-color: linear-gradient(#b4b4b4, #757575);
+}
+
+#normal {
+    -fx-background-color: linear-gradient(to right, #757575,  #b4b4b4);
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: black;
+}
+#normal:hover {
+    -fx-background-color: linear-gradient(#757575,  #b4b4b4);
+}
+
+#choixModeJeu .button {
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-background-radius: 2px;
+}
+
+.menu-bar {
+    -fx-background-color: linear-gradient(white, grey);
+}
+.menu:hover {
+    -fx-background-color: linear-gradient(white, #4c4c4c);
+}
+.menu-item:focused .label {
+    -fx-text-fill: black;
+}
+.context-menu {
+    -fx-background-color: #888888;
+    -fx-background-radius: 8px;
+}
+.menu-item:hover {
+    -fx-background-color: linear-gradient(to right, #c3c3c3, grey);
+}
+.menu-item {
+    -fx-background-radius: 4px;
+    -fx-background-color: linear-gradient(to left, #c3c3c3, grey);
+    -fx-border-width: 2px;
+    -fx-border-color: #acacac;
+}
+.menu:showing {
+    -fx-background-color: linear-gradient(to right, grey, #c3c3c3);
+}
+.menu-item .label {
+    -fx-text-fill: black;
+}
+
+#compris {
+    -fx-background-color: #ee1919;
+    -fx-border-width: 2px;
+    -fx-border-color: grey;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+#compris:hover {
+    -fx-background-color: #1e8713;
+}
+
+#ia .button {
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-background-color: linear-gradient(to right, #fee12e, #ceb205);
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, #e6dd41, 10, 0.2, 2, -2);
+}
+#ia .button:hover {
+    -fx-background-color: linear-gradient(to left, #fee12e, #ceb205);
+}
+
+#tour {
+    -fx-font-weigh: bolder;
+    -fx-font-size: xx-large;
+    -fx-font-family: sherif;
+}

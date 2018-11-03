@@ -1,0 +1,10 @@
+Projet d'Interface Graphique, Master 1 Mathématiques, Informatique et Cryptologie,
+Université de Paris Diderot (Paris 7),
+
+Rendu le lundi 21 mai 2018.
+
+
+
+Jeu de Hackenbush non jouable.
+
+Jeu de Nim jouable mais visualisation d'une partie IA contre IA impossible.

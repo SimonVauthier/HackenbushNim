@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.animation.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane fx:id="BorderPane" prefHeight="515" prefWidth="1050" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetig.FXMLDocumentController" stylesheets="@style.css">
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="Fichier">
+                    <items>
+                        <MenuItem text="Retour Menu" accelerator="shortcut+M" onAction="#retourMenu" />
+                        <MenuItem text="Quitter" accelerator="shortcut+Q" onAction="#quitter" />
+                    </items>
+                </Menu>
+                <Menu text="Edition">
+                    <items>
+                        <MenuItem text="Création Hackenbush" onAction="#playHackenbush" />
+                        <MenuItem text="Création Nim" onAction="#playNim" />
+                    </items>
+                </Menu>
+                <Menu fx:id="menuJouer" text="Jouer">
+                    <items>
+                        <Menu fx:id="menuHackenbush" text="Hackenbush" >
+                            <items>
+                                <MenuItem text="Normal" onAction="#HNormal" />
+                                <MenuItem text="Misère" onAction="#HMisere" />
+                            </items>
+                        </Menu>
+                        <Menu fx:id="menuNim" text="Nim" >
+                            <items>
+                                <Menu text="Normal">
+                                    <items>
+                                        <MenuItem text="IA vs IA" onAction="#NN2IA" />
+                                        <MenuItem text="Player VS IA" onAction="#NNPIA" />
+                                        <MenuItem text="Player VS Player" onAction="#NN2P" />
+                                    </items>
+                                </Menu>
+                                <Menu text="Misère" >
+                                    <items>
+                                        <MenuItem text="IA vs IA" onAction="#NM2IA" />
+                                        <MenuItem text="Player VS IA" onAction="#NMPIA" />
+                                        <MenuItem text="Player VS Player" onAction="#NM2P" />
+                                    </items>
+                                </Menu>
+                            </items>
+                        </Menu>
+                    </items>
+                </Menu>
+                <Menu text="Aide" >
+                    <items>
+                        <MenuItem fx:id="aideHackenbush" text="Edition Hackenbush" onAction="#aideHackenbush" />
+                        <MenuItem fx:id="aideNim" text="Edition Nim" onAction="#aideNim" />
+                        <MenuItem text="A propos" onAction="#aPropos" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <StackPane>
+            <children>
+                <BorderPane fx:id="edition" visible="false" >
+                    <center>
+                        <StackPane>
+                            <children>
+                                <Pane fx:id="dessin" focusTraversable="true" scaleShape="true"  >
+                                    <Line fx:id="sol" strokeWidth="5" stroke="brown" />
+                                </Pane>
+                                <HBox fx:id="mode" spacing="50" alignment="CENTER" >
+                                    <children>
+                                        <Button fx:id="jouerHackenbush" text="Hackenbush" prefWidth="150" onAction="#playHackenbush" />
+                                        <Button fx:id="jouerNim" text="Nim" prefWidth="150" onAction="#playNim" />
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="type" spacing="50" alignment="CENTER" visible="false" >
+                                    <children>
+                                        <Button fx:id="normal" text="Normal" prefWidth="150" onAction="#typeNormal" />
+                                        <Button fx:id="misere" text="Misère" prefWidth="150" onAction="#typeMisere" />
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="ia" spacing="50" alignment="CENTER" visible="false" >
+                                    <children>
+                                        <Button fx:id="iavia" text="IA vs IA" prefWidth="150" onAction="#iavia" />
+                                        <Button fx:id="pvia" text="Player vs IA" prefWidth="150" onAction="#pvia" />
+                                        <Button fx:id="pvp" text="Player vs Player" prefWidth="150" onAction="#pvp" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </StackPane>
+                    </center>
+                    <bottom>
+                        <StackPane prefHeight="40" fx:id="barBas" >
+                            <ToolBar fx:id="menuCreationHackenbush" BorderPane.alignment="BOTTOM_LEFT" visible="false" >
+                                <items>
+                                    <ChoiceBox fx:id="couleur" >
+                                        <items>
+                                            <FXCollections fx:factory="observableArrayList" >
+                                                <String fx:value="Vert" />
+                                                <String fx:value="Rouge" />
+                                                <String fx:value="Bleu" />
+                                            </FXCollections>
+                                        </items>
+                                    </ChoiceBox>
+                                    <ToggleButton fx:id="point" text="Point" />
+                                    <ToggleButton fx:id="droite" text="Droite" />
+                                    <ToggleButton fx:id="boucle" text="Boucle" />
+                                    <Separator halignment="CENTER" valignment="CENTER" />
+                                    <ToggleButton fx:id="selection" text="Selectionner/Déselectionner" />
+                                    <Button fx:id="grouper" text="Grouper" onAction="#group"/>
+                                    <Button fx:id="degrouper" text="Dégrouper" onAction="#degroup" />
+                                    <Button fx:id="depliquer" text="Dupliquer" onAction="#dupliquer" />
+                                    <Pane HBox.hgrow="ALWAYS" />
+                                    <Separator halignment="CENTER" valignment="CENTER" />
+                                    <Button text="Reset" onAction="#reset" />
+                                    <Button text="Jouer !" onAction="#startH" />
+                                </items>
+                                <fx:define>
+                                    <ToggleGroup fx:id="toggle" >
+                                        <toggles>
+                                            <fx:reference source="point" />
+                                            <fx:reference source="droite" />
+                                            <fx:reference source="selection" />
+                                            <fx:reference source="boucle" />
+                                        </toggles>
+                                    </ToggleGroup>
+                                </fx:define>
+                            </ToolBar>
+                            <ToolBar fx:id="menuCreationNim" BorderPane.alignment="BOTTOM_LEFT" visible="false" >
+                                <items>
+                                    <Label text="Nombre de tiges : " />
+                                    <Slider fx:id="slider" max="10" min="1" showTickMarks="true" blockIncrement="0" majorTickUnit="1" showTickLabels="true" minorTickCount="1" />
+                                    <HBox HBox.hgrow="ALWAYS" />
+                                    <Label text="Nombre de sommets pour la tige selectionnée : " />
+                                    <Slider fx:id="slider2" disable="true" min="1" max="7" showTickMarks="true" blockIncrement="0" majorTickUnit="1" showTickLabels="true" />
+                                    <Pane HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="start" text="Jouer !" onAction="#start" disable="true" />
+                                </items>
+                            </ToolBar>
+                            <HBox alignment="CENTER" fx:id="menuJeu" visible="false" >
+                                <children>
+                                    <Label fx:id="tour" text="ROUGE" textFill="red" />
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER" fx:id="speed" visible="false">
+                                <children>
+                                    <Label text="Vitesse (s)" />
+                                    <Slider fx:id="sliderSpeed" min="0" max="5" showTickMarks="true" blockIncrement="0" majorTickUnit="1" showTickLabels="true" />
+                                    <Button text="Lancer" onAction="#goIAvsIA" />
+                                </children>
+                            </HBox>
+                        </StackPane>
+                    </bottom>
+                </BorderPane>
+                <BorderPane fx:id="menuPrincipal" visible="true" >
+                    <center>
+                        <VBox alignment="CENTER" spacing="100" >
+                            <children>
+                                <Button text="Edition" prefWidth="150" onAction="#buttonEdition" />
+                                <Button text="Comment jouer" prefWidth="150" onAction="#buttonCommentJouer" />
+                            </children>
+                        </VBox>
+                    </center>
+                </BorderPane>
+                <BorderPane fx:id="commentJouer" visible="false">
+                    <top>
+                        <Label text="Comment jouer" underline="true" BorderPane.alignment="CENTER" >
+                            <BorderPane.margin>
+                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                            </BorderPane.margin>
+                        </Label>
+                    </top>
+                    <left>
+                        <VBox alignment="CENTER_LEFT" spacing="25" prefWidth="475" >
+                            <BorderPane.margin>
+                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                            </BorderPane.margin>
+                            <children>
+                                <Label text="Les modes de jeu :" underline="true" />
+                                <VBox spacing="5" >
+                                    <children>
+                                        <Label wrapText="true" underline="true" text="Hackenbush" />
+                                        <Label wrapText="true" text="2 joueurs, 1 rouge, 1 bleu. A tour de rôle, chaque joueur retire
+1 élément reliant 2 points (arète). Tous les éléments se trouvant déconnectés du sol sont supprimés. Le joueur ne peut retirer qu'un seul élément de sa couleur en 
+plus de la couleur verte." />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" >
+                                    <children>
+                                        <Label wrapText="true" underline="true" text="Nim" />
+                                        <Label wrapText="true" text="2 joueurs, 1 couleur. A tour de rôle, chaque joueur retire
+1 élément reliant 2 points (arète). Tous les éléments se trouvant déconnectés du sol sont supprimés." />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </left>
+                    <right>
+                        <VBox alignment="CENTER_LEFT" spacing="25" prefWidth="475" >
+                            <BorderPane.margin>
+                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                            </BorderPane.margin>
+                            <children>
+                                <Label wrapText="true" text="Les types de jeu :" underline="true" />
+                                <VBox spacing="5" >
+                                    <children>
+                                        <Label wrapText="true" underline="true" text="Normal" />
+                                        <Label wrapText="true" text="Le but de ce type de jeu est de prendre le dernier élément pour remporter la partie." />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" >
+                                    <children>
+                                        <Label wrapText="true" underline="true" text="Misère" />
+                                        <Label wrapText="true" text="Le but de ce type de jeu est laisser le dernier élément à son adversaire pour remporter la partie" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </right>
+                    <bottom>
+                        <Button fx:id="compris" BorderPane.alignment="CENTER" text="Compris !" onAction="#retourMenu" >
+                            <BorderPane.margin>
+                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                            </BorderPane.margin>
+                        </Button>
+                    </bottom>
+                </BorderPane>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>

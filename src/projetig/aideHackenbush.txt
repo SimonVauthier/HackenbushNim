@@ -1,0 +1,17 @@
+Pour éditer un niveau, commencez par ajouter des sommets. Pour cela, sélectionnez le bouton "Point" et placez les points d'un simple clic sur le dessin. Un point est mal placé ? N'ayez pas peur, vous pouvez le déplacer simplement en cliquant dessus et en déplaçant la souris tout en maintenant le clic.
+
+Pour ajouter des arêtes, vous avez deux options : 
+   - relier deux sommets à l'aide du bouton "Droite". Sélectionnez-le puis cliquez sur deux points distincts. Si vous désirez annuler le choix du premier point, cliquez à nouveau sur celui-ci.
+   - relier un sommet à lui même à l'aide du bouton "Boucle". Sélectionnez-le puis cliquez sur un sommet. Une boucle se créé. Vous pouvez orienter cette boucle en cliquant dessus et en déplaçant votre souris autour tout en maintenant le clic. Seul une orientation vers les quatres points cardinaux est possible.
+
+Pour changer la couleur, faites votre choix parmi celles proposées. Si vous vous trompez, ce n'est pas grave ! Il suffit de cliquer sur un élément (droite ou boucle) avec la nouvelle couleur sélectionnée.
+
+Vous avez également la possibilité de grouper plusieurs lignes et boucles, les rendant ainsi dépendantes les unes des autres. Déplacer l'une entraînera le déplacement des autres. Pour créer un groupe, sélectionnez les droites et/ou les boucles désirées à l'aide du bouton "Selectionner/Déselectionner". Une fois votre sélection complète, ciquez sur "Grouper". A noter : vous pouvez également grouper deux groupes.
+Le bouton dupliquer sert à, à partir d'un groupe sélectionné, en placer une copie à coté. Cette copie aura la même structure que le groupe, à orientation de chaque boucle près.
+
+Afin de pouvoir changer un élément particulier, il ne faut pas que ce dernier appartienne à un groupe. Le bouton "Dégrouper" sert à séparer tous les éléments d'un groupe.
+Notez que dégrouper un groupe consitué de deux groupes rendra tous les éléments de chaque groupe à leur forme d'origine.
+
+Votre création ne vous plaît pas ? Utilisez le bouton "Reset" pour recommencer l'édition du niveau.
+
+Une fois un niveau édité, cliquez sur "Jouer !" pour lancer la partie.

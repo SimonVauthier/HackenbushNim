@@ -1,0 +1,3 @@
+Pour dessiner les tiges, déplacez le premier slider (en bas à gauche) pour sélectionner le nombre de tiges voulues.
+
+Pour modifier la taille d'une tige, sélectionnez la tige en question. Un second slider devient déplaçable. Déplacez-le pour lui donner la taille désirée.
